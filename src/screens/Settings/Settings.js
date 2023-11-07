@@ -4,7 +4,7 @@ import {Text, View, StatusBar, StyleSheet} from 'react-native';
 const Settings = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <StatusBar />
+      <StatusBar backgroundColor={'#353535'} />
       <Text style={styles.text}>Settings</Text>
     </View>
   );
