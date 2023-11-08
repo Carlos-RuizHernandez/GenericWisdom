@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, StatusBar, StyleSheet, ScrollView} from 'react-native';
 import pillIcon from '../../images/pills.png';
 import bottleIcon from '../../images/bottle.png';
-import HomeCardList from '../../components/navigation/Home/HomeCardList';
+import HomeCardList from '../../components/Home/HomeCardList';
 
 const popularMedicineList = [
   {name: 'Advil', color: '#e8115b', image: pillIcon},
