@@ -4,25 +4,39 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import BottomTabNavigator from './src/components/navigation/BottomTabNavigator';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {ComparisonContextProvider} from './src/components/ComparisonContext';
+import CompareScreen from './src/screens/CompareScreen';
 
 const Stack = createStackNavigator();
 
 function App(): JSX.Element {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="BottomTabNavigator"
-            screenOptions={{headerShown: false}}>
-            <Stack.Screen
-              name="BottomTabNavigator"
-              component={BottomTabNavigator}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <ComparisonContextProvider>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.container}>
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="BottomTabNavigator"
+              screenOptions={{headerShown: false}}>
+              <Stack.Screen
+                name="BottomTabNavigator"
+                component={BottomTabNavigator}
+              />
+              <Stack.Screen
+                name="Compare"
+                component={CompareScreen}
+                options={{
+                  headerShown: true,
+                  headerStyle: {backgroundColor: '#353535'},
+                  headerTitleStyle: {color: '#f1f1f1'},
+                  headerTintColor: '#f1f1f1',
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </ComparisonContextProvider>
   );
 }
 

@@ -1,8 +1,17 @@
 import React from 'react';
-import {Text, View, StatusBar, StyleSheet, ScrollView} from 'react-native';
+import {
+  Text,
+  View,
+  StatusBar,
+  StyleSheet,
+  ScrollView,
+  Button,
+  TouchableOpacity,
+} from 'react-native';
 import pillIcon from '../../images/pills.png';
 import bottleIcon from '../../images/bottle.png';
 import HomeCardList from '../../components/Home/HomeCardList';
+import {useUpdateComparisonContext} from '../../components/ComparisonContext';
 
 const popularMedicineList = [
   {name: 'Advil', color: '#e8115b', image: pillIcon},
@@ -17,7 +26,37 @@ const recommendedMedicineList = [
   {name: 'Ibuprofen', color: '#0d73ec', image: pillIcon},
 ];
 
+const brandInfoData = [
+  {
+    name: 'Advil',
+    price: '12.99',
+    pros: ['Pain Relief', 'Fast Acting', 'Reliable', 'Popular'],
+    cons: ['Diarrhea', 'Possible death'],
+    rating: 4.5,
+    description:
+      'Advil is a widely used pain reliever known for its fast and effective results.',
+    ingredients: ['Ibuprofen', 'Starch', 'Cellulose'],
+    manufacturer: 'Pfizer',
+  },
+  {
+    name: 'Claritin',
+    price: '9.99',
+    pros: ['Non-Drowsy', 'Fast Acting', 'Reliable', 'Popular'],
+    cons: ['Dry Mouth', 'Possible drowsiness'],
+    rating: 4.2,
+    description:
+      'Claritin is a popular antihistamine used for allergy relief without causing drowsiness.',
+    ingredients: ['Loratadine', 'Calcium', 'Stearic Acid'],
+    manufacturer: 'Bayer',
+  },
+];
+
 const Home = ({navigation}) => {
+  const updateBrands = useUpdateComparisonContext();
+
+  const handleBrandSelection = (brandName, brandInfo) => {
+    updateBrands(brandName, brandInfo);
+  };
   return (
     <ScrollView
       style={styles.container}
@@ -30,6 +69,25 @@ const Home = ({navigation}) => {
       <View>
         <Text style={styles.header}>Recommended</Text>
         <HomeCardList data={recommendedMedicineList} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={[styles.button, {backgroundColor: '#444654'}]}
+          onPress={() => handleBrandSelection('brand1', brandInfoData[0])}>
+          <Text style={styles.buttonText}>Select Brand 1</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.button, {backgroundColor: '#444654'}]}
+          onPress={() => handleBrandSelection('brand2', brandInfoData[1])}>
+          <Text style={styles.buttonText}>Select Brand 2</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[styles.button, {backgroundColor: '#444654'}]}
+          onPress={() => navigation.navigate('Compare')}>
+          <Text style={styles.buttonText}>Compare</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -54,6 +112,17 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     color: '#f1f1f1',
+  },
+  button: {
+    marginVertical: 20,
+    backgroundColor: '#61dafb',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
