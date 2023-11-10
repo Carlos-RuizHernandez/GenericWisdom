@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
-import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-
+import {Text, View, StyleSheet, Image, TouchableOpacity, Button} from 'react-native';
+// import BookmarkContext from '../../screens/Bookmarks/Bookmarks.js';
+const BookmarkContext = React.createContext()
 const MedCard = props => {
   const cardColor = props.color || '#e8115b';
   const [expanded, setExpanded] = useState(false);
+  const [Bookmarked, setBookmark] = useState(true);
+  const [saveText, setSaveText] = useState("Saved");
+  function handleText() {
+    setBookmark(!Bookmarked);
+    if(Bookmarked){
+        setSaveText("Save");
+    } else{
+        setSaveText("Saved");
+    }
+  }
   return (
     <View>
       <View style={[styles.cardContainer, {backgroundColor: cardColor, height: expanded ? 200 : 100}]}>
@@ -17,13 +28,18 @@ const MedCard = props => {
         </View>
         <Image style={{width: 65, height: 65, flex: 0.2}} source={props.imageLink} />
         <View style={{flex: 0.1}} >
-            <TouchableOpacity onPress={() => { /* Add functionality for bookmark button here */ }}>
-                <View style={styles.bookmarkIcon} />
-            </TouchableOpacity>
+            <BookmarkContext.Provider value= {Bookmarked}> 
+                <TouchableOpacity onPress={() => {handleText()}}>
+                    <Text style={styles.bookmarkIcon}>
+                        {saveText}
+                    </Text>
+                </TouchableOpacity>
+            </BookmarkContext.Provider>
             <TouchableOpacity onPress={() => {setExpanded(!expanded)}}>
                 <View style={[styles.triangle, 
                     {marginTop: expanded ? 125 : 35, 
-                    transform: expanded ? [{ rotate: '0deg' }]:[{ rotate: '180deg' }]}]} />
+                     transform: expanded ? [{ rotate: '0deg' }]:[{ rotate: '180deg' }]
+                    }]} />
             </TouchableOpacity>
         </View>
       </View>
@@ -67,21 +83,25 @@ const styles = StyleSheet.create({
     borderRightColor: 'transparent',
     borderBottomColor: '#f1f1f1',
     marginTop: 50,
+    marginLeft: 20,
     transform: [{ rotate: '180deg' }],
   },
   bookmarkIcon: {
-    width: 20,
+    width: 50,
     height: 20,
-    borderLeftWidth: 10,
-    borderRightWidth: 10,
-    borderBottomWidth: 10,
-    borderTopWidth: 10,
-    borderStyle: 'solid',
-    backgroundColor: 'transparent',
-    borderLeftColor: '#f1f1f1',
-    borderRightColor: '#f1f1f1',
-    borderTopColor: '#f1f1f1',
-    borderBottomColor: 'transparent',
+    fontSize: 15,
+    color: 'white',
+    // borderLeftWidth: 10,
+    // borderRightWidth: 10,
+    // borderBottomWidth: 10,
+    // borderTopWidth: 10,
+    // borderStyle: 'solid',
+    // backgroundColor: 'transparent',
+    // borderLeftColor: '#f1f1f1',
+    // borderRightColor: '#f1f1f1',
+    // borderTopColor: '#f1f1f1',
+    // borderBottomColor: 'transparent',
+
   },
 });
 
