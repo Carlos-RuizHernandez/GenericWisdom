@@ -8,12 +8,7 @@ const MedCardList = props => {
       <View>
         {props.data.map(item => (
           <View key={item.name}>
-            <MedCard
-              text={item.name}
-              imageLink={item.image}
-              color={item.color}
-              description = {item.description}
-            />
+            <MedCard data={item} />
           </View>
         ))}
       </View>
