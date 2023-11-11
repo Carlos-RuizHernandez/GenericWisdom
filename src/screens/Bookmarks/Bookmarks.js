@@ -5,7 +5,6 @@ import {useComparisonContext} from '../../components/ComparisonContext';
 
 const Bookmarks = ({navigation}) => {
   const BookmarkedMedicineList = useComparisonContext().bookmarks;
-  console.log(BookmarkedMedicineList);
   return (
     <ScrollView
       style={styles.container}

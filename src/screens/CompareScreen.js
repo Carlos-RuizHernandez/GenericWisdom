@@ -1,15 +1,64 @@
 import React from 'react';
-import {Text, View, StatusBar, StyleSheet, ScrollView} from 'react-native';
-import {useComparisonContext} from '../components/ComparisonContext';
+import {
+  Text,
+  View,
+  StatusBar,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {
+  useComparisonContext,
+  useUpdateComparisonContext,
+} from '../components/ComparisonContext';
 
 const CompareScreen = ({navigation}) => {
   const brands = useComparisonContext();
+  const bookmarks = brands.bookmarks;
+  const setBookmarks = useUpdateComparisonContext();
+  console.log(bookmarks);
+
+  const addToBookmarks = brand => {
+    const isBookmarked = bookmarks.some(
+      bookmark => bookmark.name === brand.name,
+    );
+    let updatedBookmarks = [];
+
+    if (isBookmarked) {
+      console.log('Removing from bookmarks:', brand.name);
+      updatedBookmarks = bookmarks.filter(
+        bookmark => bookmark.name !== brand.name,
+      );
+    } else {
+      console.log('Adding to bookmarks:', brand.name);
+      updatedBookmarks = [...bookmarks, brand];
+    }
+    setBookmarks('bookmarks', updatedBookmarks);
+  };
 
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={'#353535'} />
       <View style={styles.brandContainer}>
-        <Text style={styles.header}>{brands.brand1.name}</Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingRight: 20,
+          }}>
+          <Text style={styles.header}>{brands.brand1.name}</Text>
+          <TouchableOpacity onPress={() => addToBookmarks(brands.brand1)}>
+            <MaterialCommunityIcons
+              name="cards-heart"
+              color={
+                bookmarks.some(bookmark => bookmark.name === brands.brand1.name)
+                  ? '#dd103b'
+                  : '#f1f1f1'
+              }
+              size={32}
+            />
+          </TouchableOpacity>
+        </View>
         <View style={styles.section}>
           <Text style={styles.text}>Price: {brands.brand1.price} (USD)</Text>
         </View>
@@ -32,7 +81,25 @@ const CompareScreen = ({navigation}) => {
         </View>
       </View>
       <View style={styles.brandContainer}>
-        <Text style={styles.header}>{brands.brand2.name}</Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingRight: 20,
+          }}>
+          <Text style={styles.header}>{brands.brand2.name}</Text>
+          <TouchableOpacity onPress={() => addToBookmarks(brands.brand2)}>
+            <MaterialCommunityIcons
+              name="cards-heart"
+              color={
+                bookmarks.some(bookmark => bookmark.name === brands.brand2.name)
+                  ? '#dd103b'
+                  : '#f1f1f1'
+              }
+              size={32}
+            />
+          </TouchableOpacity>
+        </View>
         <View style={styles.section}>
           <Text style={styles.text}>Price: {brands.brand2.price} (USD)</Text>
         </View>
