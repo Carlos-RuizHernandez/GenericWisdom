@@ -19,6 +19,8 @@ const Bookmarks = ({navigation}) => {
       <StatusBar backgroundColor={'#353535'} />
       <View>
         <Text style={styles.header}>Bookmarks</Text>
+        <Text style={styles.text}>Click downward arrow for more 
+        information on specific medicine</Text>
         <MedCardList data={BookmarkedMedicineList} />
       </View>
     </ScrollView>
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   text: {
-    fontSize: 32,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#f1f1f1',
   },

@@ -30,7 +30,10 @@ const MedCard = props => {
         <View style={{flex: 0.1}} >
             <BookmarkContext.Provider value= {Bookmarked}> 
                 <TouchableOpacity onPress={() => {handleText()}}>
-                    <Text style={styles.bookmarkIcon}>
+                    <Text style={[styles.bookmarkIcon,
+                        {
+                            width: Bookmarked ? 45 : 35
+                        }]}>
                         {saveText}
                     </Text>
                 </TouchableOpacity>
@@ -87,10 +90,15 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '180deg' }],
   },
   bookmarkIcon: {
-    width: 50,
+    width: 45,
     height: 20,
     fontSize: 15,
     color: 'white',
+    backgroundColor: 'black',
+    borderRadius: 5,
+    marginLeft: 5,
+
+    // backgroundColor: '',
     // borderLeftWidth: 10,
     // borderRightWidth: 10,
     // borderBottomWidth: 10,
