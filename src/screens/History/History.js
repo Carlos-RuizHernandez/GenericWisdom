@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, StatusBar, StyleSheet, FlatList } from 'react-native';
+import { Text, View, StatusBar, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { PainList } from '../../data';
+import { useComparisonContext, useUpdateComparisonContext } from '../../components/ComparisonContext';
 
 const History = ({ navigation }) => {
   const [historyData, setHistoryData] = useState([
@@ -18,18 +20,30 @@ const History = ({ navigation }) => {
     { id: '13', name: 'Naproxen', date: '2023-08-28' },
   ]);
 
+  const updateBrands = useUpdateComparisonContext();
+
+  const handleBrandSelection = (brandName, brandInfo) => {
+      updateBrands(brandName, brandInfo);
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={'#353535'} />
-      <Text style={styles.text}>History</Text>
       <FlatList
         data={historyData}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <View style={styles.historyItem}>
-            <Text style={styles.eventText}>{item.name}</Text>
-            <Text style={styles.dateText}>{item.date}</Text>
-          </View>
+          <TouchableOpacity 
+            onPress={() => {
+              handleBrandSelection('brand1', 
+              PainList.filter((x) => item.name === x.name)[0]);
+              navigation.navigate("Results:")
+            }}>
+            <View style={styles.historyItem}>
+              <Text style={styles.eventText}>{item.name}</Text>
+              <Text style={styles.dateText}>{item.date}</Text>
+            </View>
+          </TouchableOpacity>
         )}
       />
     </View>

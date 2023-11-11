@@ -8,7 +8,6 @@ const ResultsScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor={'#353535'} />
-            <Text></Text>
             <ResultsList navigation={navigation}/>
         </View>
     )

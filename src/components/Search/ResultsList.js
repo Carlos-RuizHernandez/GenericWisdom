@@ -30,7 +30,7 @@ const ResultsList = ({data, navigation}) => {
             <View key={item.name}>
               <TouchableOpacity
                 onPress={() => {handleBrandSelection('brand2', 
-                brandInfoData.filter((x) => item.name == x.name)[0])
+                newPainList.filter((x) => item.name == x.name)[0]);
                 navigation.navigate("Compare");
               }}>
                 <MedCard

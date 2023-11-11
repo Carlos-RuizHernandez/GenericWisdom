@@ -1,18 +1,36 @@
 import React from 'react';
-import {View, Text, FlatList, Image, StyleSheet} from 'react-native';
+import {View, Text, FlatList, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import HomeCard from './HomeCard';
+import { PainList } from '../../data';
+import {
+  useComparisonContext, 
+  useUpdateComparisonContext
+} from '../ComparisonContext';
 
 const HomeCardList = props => {
+  const updateBrands = useUpdateComparisonContext();
+  const handleBrandSelection = (brandName, brandInfo) => {
+    updateBrands(brandName, brandInfo);
+  };
+
   return (
     <>
       <View>
         {props.data.map(item => (
+          
           <View key={item.name}>
-            <HomeCard
-              text={item.name}
-              imageLink={item.image}
-              color={item.color}
-            />
+            <TouchableOpacity
+                onPress={() => {
+                  handleBrandSelection('brand1', 
+                  PainList.filter((x) => item.name === x.name)[0]);
+                  props.navigation.navigate("Results:");
+            }}>
+              <HomeCard
+                text={item.name}
+                imageLink={item.image}
+                color={item.color}
+              />
+            </TouchableOpacity>
           </View>
         ))}
       </View>

@@ -135,6 +135,7 @@ const styles = StyleSheet.create({
   title: {
     paddingVertical: 10,
     paddingHorizontal: 10,
+    color: '#747474'
   },
   separator: {
     height: 1,

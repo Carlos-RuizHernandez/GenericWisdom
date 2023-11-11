@@ -14,7 +14,7 @@ import HomeCardList from '../../components/Home/HomeCardList';
 import {useUpdateComparisonContext} from '../../components/ComparisonContext';
 
 const popularMedicineList = [
-  {name: 'Advil', color: '#e8115b', image: pillIcon},
+  {name: '', color: '#e8115b', image: pillIcon},
   {name: 'Benadryl', color: '#1e3264', image: bottleIcon},
   {name: 'Tylenol', color: '#006450', image: bottleIcon},
   {name: 'Zyrtec', color: '#8c1932', image: pillIcon},
@@ -150,11 +150,11 @@ const Home = ({navigation}) => {
       <StatusBar backgroundColor={'#353535'} />
       <View>
         <Text style={styles.header}>Popular Brands</Text>
-        <HomeCardList data={popularMedicineList} />
+        <HomeCardList data={popularMedicineList} navigation={navigation} />
       </View>
       <View>
         <Text style={styles.header}>Recommended</Text>
-        <HomeCardList data={recommendedMedicineList} />
+        <HomeCardList data={recommendedMedicineList} navigation={navigation}/>
       </View>
     </ScrollView>
   );
