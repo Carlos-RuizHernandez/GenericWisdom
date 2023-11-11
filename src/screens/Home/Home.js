@@ -159,23 +159,6 @@ const Home = ({navigation}) => {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={[styles.button, {backgroundColor: '#444654'}]}
-          onPress={() => handleBrandSelection('brand1', brandInfoData[0])}>
-          <Text style={styles.buttonText}>Select Brand 1</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.button, {backgroundColor: '#444654'}]}
-          onPress={() => handleBrandSelection('brand2', brandInfoData[1])}>
-          <Text style={styles.buttonText}>Select Brand 2</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.button, {backgroundColor: '#444654'}]}
-          onPress={() => navigation.navigate('Compare')}>
-          <Text style={styles.buttonText}>Compare</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, {backgroundColor: '#444654'}]}
           onPress={() => navigation.navigate('Reviews')}>
           <Text style={styles.buttonText}>Reviews</Text>
         </TouchableOpacity>

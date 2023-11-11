@@ -32,7 +32,7 @@ const MedCard = props => {
       );
     } else {
       console.log('Adding to bookmarks:', props.data.name);
-      updatedBookmarks = bookmarks.push(props.data);
+      updatedBookmarks = [...bookmarks, props.data];
     }
     setBookmarks('bookmarks', updatedBookmarks);
   };

@@ -1,15 +1,14 @@
 import React, {Component, useState} from 'react';
-import {Text, View, StatusBar, StyleSheet, TextInput, FlatList} from 'react-native';
+import {Text, View, StatusBar, StyleSheet, TextInput, FlatList, ScrollView} from 'react-native';
 import {Icon} from '@rneui/themed';
 import SearchBar from '../../components/Search/SearchBar.js';
 import ResultsList from '../../components/Search/ResultsList.js'
-//fill
+
 const Search = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={'#353535'} />
-      <SearchBar />
-      
+      <SearchBar navigation={navigation}/>
     </View>
   );
 };

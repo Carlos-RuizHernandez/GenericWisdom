@@ -1,38 +1,49 @@
 import React, {Component, useState, useContext} from 'react';
 import {Text, View, StatusBar, StyleSheet, TextInput, FlatList, TouchableOpacity} from 'react-native';
 import {Icon} from '@rneui/themed';
+import {
+  useComparisonContext, 
+  useUpdateComparisonContext
+} from '../ComparisonContext';
+import { brandInfoData } from '../../data';
 
 
 const SearchedItem = React.createContext(null);
 
 
-const SearchBar = () => {
+const SearchBar = ({navigation}) => {
     const [input, setInput] = useState("Search");
     const [focused, setFocus] = useState(false);
 
+    const updateBrands = useUpdateComparisonContext();
+
+    const handleBrandSelection = (brandName, brandInfo) => {
+        updateBrands(brandName, brandInfo);
+    };
+
     const brands = [
       {
-        name: "tylenol",
+        name: "Tylenol",
         id: '1',
       },
       {
-        name: "benadryl",
+        name: "Benadryl",
         id: '2',
       },
       {
-        name: 'advil',
+        name: 'Advil',
         id: '3',
       },
       {
-        name: 'nyquil',
+        name: 'Nyquil',
         id: '4',
       },
       {
-        name: 'moltrin',
+        name: 'Moltrin',
         id: '5',
       },
       {
-        name: 'mucinex',
+        name: 'Mucinex',
         id: '6'
       }
     ]
@@ -41,7 +52,14 @@ const SearchBar = () => {
       return (
         <>
           <TouchableOpacity 
-            onPress={() => {setInput(title); setFocus(!focused)}}
+            onPress={() => {
+              setInput(title);
+              setFocus(!focused);
+              
+              handleBrandSelection('brand1', 
+              brandInfoData.filter((item) => item.name === title)[0]);
+              navigation.navigate("Results:")
+            }}
             style={styles.item}
           >
             <View>
