@@ -1,11 +1,15 @@
-import React from 'react';
-import {Text, View, StatusBar, StyleSheet} from 'react-native';
-
+import React, {Component, useState} from 'react';
+import {Text, View, StatusBar, StyleSheet, TextInput, FlatList} from 'react-native';
+import {Icon} from '@rneui/themed';
+import SearchBar from '../../components/Search/SearchBar.js';
+import ResultsList from '../../components/Search/ResultsList.js'
+//fill
 const Search = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={'#353535'} />
-      <Text style={styles.text}>Search</Text>
+      <SearchBar />
+      
     </View>
   );
 };
@@ -13,8 +17,6 @@ const Search = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#353535',
   },
   text: {
@@ -22,6 +24,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#f1f1f1',
   },
+
 });
 
 export default Search;
