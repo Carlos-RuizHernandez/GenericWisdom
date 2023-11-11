@@ -6,6 +6,7 @@ import BottomTabNavigator from './src/components/navigation/BottomTabNavigator';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {ComparisonContextProvider} from './src/components/ComparisonContext';
 import CompareScreen from './src/screens/CompareScreen';
+import ResultsScreen from './src/screens/ResultsScreen';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,16 @@ function App(): JSX.Element {
               <Stack.Screen
                 name="Compare"
                 component={CompareScreen}
+                options={{
+                  headerShown: true,
+                  headerStyle: {backgroundColor: '#353535'},
+                  headerTitleStyle: {color: '#f1f1f1'},
+                  headerTintColor: '#f1f1f1',
+                }}
+              />
+              <Stack.Screen
+                name="Results:"
+                component={ResultsScreen}
                 options={{
                   headerShown: true,
                   headerStyle: {backgroundColor: '#353535'},
