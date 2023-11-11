@@ -156,13 +156,6 @@ const Home = ({navigation}) => {
         <Text style={styles.header}>Recommended</Text>
         <HomeCardList data={recommendedMedicineList} />
       </View>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={[styles.button, {backgroundColor: '#444654'}]}
-          onPress={() => navigation.navigate('Reviews')}>
-          <Text style={styles.buttonText}>Reviews</Text>
-        </TouchableOpacity>
-      </View>
     </ScrollView>
   );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Text,
   View,
+  ScrollView,
   StatusBar,
   StyleSheet,
   TouchableOpacity,
@@ -37,7 +38,7 @@ const CompareScreen = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <StatusBar backgroundColor={'#353535'} />
       <View style={styles.brandContainer}>
         <View
@@ -47,17 +48,31 @@ const CompareScreen = ({navigation}) => {
             paddingRight: 20,
           }}>
           <Text style={styles.header}>{brands.brand1.name}</Text>
-          <TouchableOpacity onPress={() => addToBookmarks(brands.brand1)}>
-            <MaterialCommunityIcons
-              name="cards-heart"
-              color={
-                bookmarks.some(bookmark => bookmark.name === brands.brand1.name)
-                  ? '#dd103b'
-                  : '#f1f1f1'
-              }
-              size={32}
-            />
-          </TouchableOpacity>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'center',
+            }}>
+            <TouchableOpacity onPress={() => navigation.navigate('Reviews')}>
+              <View style={styles.button}>
+                <Text style={styles.text}>Reviews</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => addToBookmarks(brands.brand1)}>
+              <MaterialCommunityIcons
+                name="cards-heart"
+                color={
+                  bookmarks.some(
+                    bookmark => bookmark.name === brands.brand1.name,
+                  )
+                    ? '#dd103b'
+                    : '#f1f1f1'
+                }
+                size={32}
+                style={{marginLeft: 20}}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.section}>
           <Text style={styles.text}>Price: {brands.brand1.price} (USD)</Text>
@@ -88,17 +103,31 @@ const CompareScreen = ({navigation}) => {
             paddingRight: 20,
           }}>
           <Text style={styles.header}>{brands.brand2.name}</Text>
-          <TouchableOpacity onPress={() => addToBookmarks(brands.brand2)}>
-            <MaterialCommunityIcons
-              name="cards-heart"
-              color={
-                bookmarks.some(bookmark => bookmark.name === brands.brand2.name)
-                  ? '#dd103b'
-                  : '#f1f1f1'
-              }
-              size={32}
-            />
-          </TouchableOpacity>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'center',
+            }}>
+            <TouchableOpacity onPress={() => navigation.navigate('Reviews')}>
+              <View style={styles.button}>
+                <Text style={styles.text}>Reviews</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => addToBookmarks(brands.brand2)}>
+              <MaterialCommunityIcons
+                name="cards-heart"
+                color={
+                  bookmarks.some(
+                    bookmark => bookmark.name === brands.brand2.name,
+                  )
+                    ? '#dd103b'
+                    : '#f1f1f1'
+                }
+                size={32}
+                style={{marginLeft: 20}}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.section}>
           <Text style={styles.text}>Price: {brands.brand2.price} (USD)</Text>
@@ -122,7 +151,7 @@ const CompareScreen = ({navigation}) => {
           </Text>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -156,8 +185,11 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     backgroundColor: '#1e1f22',
   },
-  brandContainer: {
-    height: '50%',
+  brandContainer: {marginBottom: 20},
+  button: {
+    backgroundColor: '#767678',
+    padding: 5,
+    borderRadius: 5,
   },
 });
 
