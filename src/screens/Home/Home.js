@@ -174,6 +174,11 @@ const Home = ({navigation}) => {
           onPress={() => navigation.navigate('Compare')}>
           <Text style={styles.buttonText}>Compare</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.button, {backgroundColor: '#444654'}]}
+          onPress={() => navigation.navigate('Reviews')}>
+          <Text style={styles.buttonText}>Reviews</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
