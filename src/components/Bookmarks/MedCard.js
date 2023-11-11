@@ -9,10 +9,34 @@ import {
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import BookmarkInfo from './BookmarkInfo';
+import {
+  useComparisonContext,
+  useUpdateComparisonContext,
+} from '../ComparisonContext';
+
 const MedCard = props => {
-  console.log(props);
-  const cardColor = props.color || '#e8115b';
   const [expanded, setExpanded] = useState(false);
+  const bookmarks = useComparisonContext().bookmarks;
+  const setBookmarks = useUpdateComparisonContext();
+
+  const addToBookmarks = () => {
+    const isBookmarked = bookmarks.some(
+      bookmark => bookmark.name === props.data.name,
+    );
+    let updatedBookmarks = [];
+
+    if (isBookmarked) {
+      console.log('Removing from bookmarks:', props.data.name);
+      updatedBookmarks = bookmarks.filter(
+        bookmark => bookmark.name !== props.data.name,
+      );
+    } else {
+      console.log('Adding to bookmarks:', props.data.name);
+      updatedBookmarks = bookmarks.push(props.data);
+    }
+    setBookmarks('bookmarks', updatedBookmarks);
+  };
+
   return (
     <View>
       <View style={[styles.cardContainer, {backgroundColor: props.data.color}]}>
@@ -21,13 +45,14 @@ const MedCard = props => {
           {expanded && <BookmarkInfo data={props.data} />}
         </View>
         <View style={{justifyContent: 'space-between', alignItems: 'center'}}>
-          <TouchableOpacity
-            onPress={() => {
-              // add to bookmarks
-            }}>
+          <TouchableOpacity onPress={addToBookmarks}>
             <MaterialCommunityIcons
               name="cards-heart"
-              color={'#f1f1f1'}
+              color={
+                bookmarks.some(bookmark => bookmark.name === props.data.name)
+                  ? '#dd103b'
+                  : '#f1f1f1'
+              }
               size={32}
             />
           </TouchableOpacity>
