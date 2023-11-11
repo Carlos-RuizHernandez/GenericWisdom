@@ -1,0 +1,16 @@
+export const PainList = [
+    {name: 'Tylenol', color: 'grey', image: pillIcon, symptom: 'Pain'},
+    {name: 'Didaudid', color: 'grey', image: bottleIcon, symtom: 'Pain'},
+    {name: 'Oxycodone', color: 'grey', image: pillIcon, symtom: 'Pain'},
+    {name: 'Morphine', color: 'grey', image: pillIcon, symtom: 'Pain'},
+    {name: 'Tramadol', color: 'grey', image: bottleIcon, symtom: 'Pain'},
+    {name: 'Ketorolac', color: 'grey', image: bottleIcon, symtom: 'Pain'},
+    {name: 'Norco', color: 'grey', image: bottleIcon, symtom: 'Pain'},
+    {name: 'Percocet', color: 'grey', image: bottleIcon, symtom: 'Pain'},
+    {name: 'Cyclobenzaprine', color: 'grey', image: bottleIcon, symtom:'Pain'},
+    {name: 'Methocarbamol', color: 'grey', image: bottleIcon, symtom:'Pain'},
+    {name: 'Aspirin', color: 'grey', image: pillIcon, symtom:'Pain'},
+    {name: 'Ibuprofen', color: 'grey', image: bottleIcon, symtom:'Pain'},
+    {name: 'Acetaminophen', color: 'grey', image: bottleIcon, symtom:'Pain'},
+    {name: 'Naproxen', color: 'grey', image: bottleIcon, symtom:'Pain'},
+  ];
