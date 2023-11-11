@@ -39,7 +39,7 @@ const MedCard = props => {
 
   return (
     <View>
-      <View style={[styles.cardContainer, {backgroundColor: props.data.color}]}>
+      <View style={[styles.cardContainer, {backgroundColor: '#8400e7'}]}>
         <View style={{paddingBottom: 10, flex: 0.8}}>
           <Text style={styles.text}>{props.data.name}</Text>
           {expanded && <BookmarkInfo data={props.data} />}
