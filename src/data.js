@@ -172,7 +172,63 @@ export const PainList = [
         description: "Naproxen is a long-lasting nonsteroidal anti-inflammatory drug (NSAID) known for its pain relief and anti-inflammatory properties. It should be used cautiously due to the risk of gastrointestinal issues and is not recommended for certain individuals.",
         ingredients: ["Naproxen", "Inactive ingredients"],
         manufacturer: "NapraPharm"
-      }
+      },
+      {
+        name: 'Advil',
+        price: '12.99',
+        generic: 'brand',
+        pros: ['Pain Relief', 'Fast Acting', 'Reliable', 'Popular'],
+        cons: ['Diarrhea', 'Possible death'],
+        rating: 4.5,
+        description:
+          'Advil is a widely used pain reliever known for its fast and effective results.',
+        ingredients: ['Ibuprofen', 'Starch', 'Cellulose'],
+        manufacturer: 'Pfizer',
+      },
+      {name: 'Benadryl',
+      price: '19.99',
+      generic: 'generic',
+      pros: ['relieve allergy and cold symptoms', 'lower-cost generic'],
+      cons: ['drowsiness','hyperactivity'],
+      rating: 4.2,
+      description: 'treat allergies, common cold symptoms, and itching.',
+      ingredients: ['Magnesium stearate','Polyethylene Glycol','Hypromellose'],
+      manufacturer: 'Kenvue'
+     },
+     {name: 'Zyrtec', 
+      price: '3.16',
+      generic: 'generic',
+      pros: ['Lower risk of sleepiness', 'relieving allergy'],
+      cons: ['Sleepiness','liver or kidney problems'],
+      rating: 4.6,
+      description: 'Cetirizine (Zyrtec) works well for allergies and usually causes less side',
+      ingredients: ['Cetirizine'],
+      manufacturer: 'Johnson & Johnson Consumer Inc'
+  
+    },
+    {name: 'Pepto Bismol', 
+     price: '5.95',
+     generic: 'brand',
+     pros: ['Controls: diarrhoea'],
+     cons: ['tongue turning black', 'black poo'],
+     rating: 2.0,
+     description: 'used for heartburn and acid reflux, indigestion, diarrhoea and feeling sick (nausea)',
+     ingredients: ['Bismuth Subsalicylate'],
+     manufacturer: 'Procter & Gamble company'
+    },
+    {
+    name: 'Claritin',
+      price: '9.99',
+      generic: 'brand',
+      color: '#8400e7',
+      pros: ['Non-Drowsy', 'Fast Acting', 'Reliable', 'Popular'],
+      cons: ['Dry Mouth', 'Possible drowsiness'],
+      rating: 4.2,
+      description:
+        'Claritin is a popular antihistamine used for allergy relief without causing drowsiness.',
+      ingredients: ['Loratadine', 'Calcium', 'Stearic Acid'],
+      manufacturer: 'Bayer',
+    }
   ];
 
 export const popularMedicineList2 = [

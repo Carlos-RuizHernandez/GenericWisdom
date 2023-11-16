@@ -14,7 +14,7 @@ import HomeCardList from '../../components/Home/HomeCardList';
 import {useUpdateComparisonContext} from '../../components/ComparisonContext';
 
 const popularMedicineList = [
-  {name: '', color: '#e8115b', image: pillIcon},
+  {name: 'Advil', color: '#e8115b', image: pillIcon},
   {name: 'Benadryl', color: '#1e3264', image: bottleIcon},
   {name: 'Tylenol', color: '#006450', image: bottleIcon},
   {name: 'Zyrtec', color: '#8c1932', image: pillIcon},
