@@ -47,12 +47,17 @@ const MedCard = props => {
         <View style={{justifyContent: 'space-between', alignItems: 'center'}}>
           <TouchableOpacity onPress={addToBookmarks}>
             <MaterialCommunityIcons
-              name="cards-heart"
+              name= {
+                bookmarks.some(bookmark => bookmark.name === props.data.name)
+                  ? 'heart'
+                  : 'heart-outline'
+              }
               color={
                 bookmarks.some(bookmark => bookmark.name === props.data.name)
                   ? '#dd103b'
                   : '#f1f1f1'
               }
+              
               size={32}
             />
           </TouchableOpacity>
