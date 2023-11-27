@@ -86,7 +86,7 @@ const SearchBar = ({navigation}) => {
   };
 
   return (
-    <View>
+    <View style={{marginTop: 20, paddingHorizontal: 20}}>
       <View style={styles.searchSection}>
         <Icon style={styles.searchIcon} name="search" />
         <TextInput
@@ -99,6 +99,7 @@ const SearchBar = ({navigation}) => {
           onFocus={() => setFocus(true)}
         />
       </View>
+
       <FlatList // Search recommendations list
         data={focused ? filteredBrands(input) : []}
         renderItem={({item}) => <Item title={item.name} />}
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
     backgroundColor: 'lightgrey',
-    
+
     borderWidth: 3,
     borderColor: 'white',
     borderRadius: 15,
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
   title: {
     paddingVertical: 10,
     paddingHorizontal: 10,
-    color: '#747474'
+    color: '#747474',
   },
   separator: {
     height: 1,

@@ -14,7 +14,6 @@ import bottleIcon from '../../images/bottle.png';
 import HomeCardList from '../../components/Home/HomeCardList';
 import {useUpdateComparisonContext} from '../../components/ComparisonContext';
 
-
 const popularMedicineList2 = [
   {
     name: 'Advil',
@@ -29,36 +28,42 @@ const popularMedicineList2 = [
     manufacturer: 'Pfizer',
   },
 
-  {name: 'Benadryl',
-   price: '19.99',
-   generic: 'generic',
-   pros: ['relieve allergy and cold symptoms', 'lower-cost generic'],
-   cons: ['drowsiness','hyperactivity'],
-   rating: 4.2,
-   description: 'treat allergies, common cold symptoms, and itching.',
-   ingredients: ['Magnesium stearate','Polyethylene Glycol','Hypromellose'],
-   manufacturer: 'Kenvue'
+  {
+    name: 'Benadryl',
+    price: '19.99',
+    generic: 'generic',
+    pros: ['relieve allergy and cold symptoms', 'lower-cost generic'],
+    cons: ['drowsiness', 'hyperactivity'],
+    rating: 4.2,
+    description: 'treat allergies, common cold symptoms, and itching.',
+    ingredients: ['Magnesium stearate', 'Polyethylene Glycol', 'Hypromellose'],
+    manufacturer: 'Kenvue',
   },
-  {name: 'Tylenol',
-   price: '2.25',
-   generic: 'generic',
-   pros: ['relieve mild aches or pain and lower fever', ' lower-cost generic '],
-   cons: ['Doesn\'t help with inflammation and swelling','Liver damage'],
-   rating: 3.5,
-   description: 'lower fever and relieve mild pain in adults and children',
-   ingredients: ['Acetaminophen'],
-   manufacturer: 'McNeil Laboratories, Inc'
+  {
+    name: 'Tylenol',
+    price: '2.25',
+    generic: 'generic',
+    pros: [
+      'relieve mild aches or pain and lower fever',
+      ' lower-cost generic ',
+    ],
+    cons: ["Doesn't help with inflammation and swelling", 'Liver damage'],
+    rating: 3.5,
+    description: 'lower fever and relieve mild pain in adults and children',
+    ingredients: ['Acetaminophen'],
+    manufacturer: 'McNeil Laboratories, Inc',
   },
-  {name: 'Zyrtec', 
-   price: '3.16',
-   generic: 'generic',
-   pros: ['Lower risk of sleepiness', 'relieving allergy'],
-   cons: ['Sleepiness','liver or kidney problems'],
-   rating: 4.6,
-   description: 'Cetirizine (Zyrtec) works well for allergies and usually causes less side',
-   ingredients: ['Cetirizine'],
-   manufacturer: 'Johnson & Johnson Consumer Inc'
-
+  {
+    name: 'Zyrtec',
+    price: '3.16',
+    generic: 'generic',
+    pros: ['Lower risk of sleepiness', 'relieving allergy'],
+    cons: ['Sleepiness', 'liver or kidney problems'],
+    rating: 4.6,
+    description:
+      'Cetirizine (Zyrtec) works well for allergies and usually causes less side',
+    ingredients: ['Cetirizine'],
+    manufacturer: 'Johnson & Johnson Consumer Inc',
   },
 ];
 
@@ -188,7 +193,7 @@ const Home = ({navigation}) => {
   return (
     <>
       <View style={styles.searchContainer}>
-        <SearchBar navigation={navigation}/>
+        <SearchBar navigation={navigation} />
       </View>
       <ScrollView
         style={styles.container}
@@ -205,7 +210,7 @@ const Home = ({navigation}) => {
 
 const styles = StyleSheet.create({
   searchContainer: {
-    backgroundColor: "#353535"
+    backgroundColor: '#353535',
   },
   container: {
     flex: 1,
