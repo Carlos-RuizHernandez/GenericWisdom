@@ -96,8 +96,7 @@ const SearchBar = ({navigation}) => {
           onChangeText={text => {
             setInput(text);
           }}
-          onFocus={() => setFocus(!focused)}
-          onEndEditing={() => setFocus(!focused)}
+          onFocus={() => setFocus(true)}
         />
       </View>
       <FlatList // Search recommendations list

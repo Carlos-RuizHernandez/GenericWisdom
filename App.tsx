@@ -25,16 +25,6 @@ function App(): JSX.Element {
                 component={BottomTabNavigator}
               />
               <Stack.Screen
-                name="Compare"
-                component={CompareScreen}
-                options={{
-                  headerShown: true,
-                  headerStyle: {backgroundColor: '#353535'},
-                  headerTitleStyle: {color: '#f1f1f1'},
-                  headerTintColor: '#f1f1f1',
-                }}
-              />
-              <Stack.Screen
                 name="Results:"
                 component={ResultsScreen}
                 options={{
