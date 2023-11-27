@@ -8,14 +8,18 @@ import {
   Button,
   TouchableOpacity,
   Modal,
-  Pressable
+  Pressable,
 } from 'react-native';
 import SearchBar from '../../components/Home/SearchBar';
 import pillIcon from '../../images/pills.png';
 import bottleIcon from '../../images/bottle.png';
 import HomeCardList from '../../components/Home/HomeCardList';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useUpdateComparisonContext} from '../../components/ComparisonContext';
-import { useInfoContext, useUpdateInfoContext } from '../../components/InfoContext';
+import {
+  useInfoContext,
+  useUpdateInfoContext,
+} from '../../components/InfoContext';
 
 const popularMedicineList2 = [
   {
@@ -187,7 +191,6 @@ const brandInfoData = [
   },
 ];
 
-
 const Home = ({navigation}) => {
   const visibility = useInfoContext();
   const updateVisibility = useUpdateInfoContext();
@@ -200,29 +203,40 @@ const Home = ({navigation}) => {
     <>
       <View style={styles.searchContainer}>
         <SearchBar navigation={navigation} />
+
         <Modal
-          animationType="slide"
+          animationType="fade"
           transparent={true}
           visible={visibility}
-          onRequestClose={() => {
-            updateVisibility();
-          }}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>
-              Use the search bar or tap a popular brand to compare with!
-              Once you reach the results list, tap a brand you like and start comparing!
-            </Text>
-            <Pressable
-              style={[styles.mButton, styles.buttonClose]}
-              onPress={() => updateVisibility()}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+          onRequestClose={() => updateVisibility()}>
+          <TouchableOpacity
+            onPress={() => updateVisibility()}
+            style={styles.centeredView}>
+            <View>
+              <View style={styles.modalView}>
+                <View style={styles.closeIconContainer}>
+                  <MaterialCommunityIcons
+                    name={'close-box-outline'}
+                    color={'#f1f1f1'}
+                    size={36}
+                  />
+                </View>
+                <Text style={styles.modalText}>
+                  1. Use the search bar or select a popular brand to start.
+                </Text>
+                <Text style={styles.modalText}>
+                  2. On the results screen, tap a card to select a brand to
+                  compare.
+                </Text>
+                <Text style={styles.modalText}>
+                  3. Tap a heart to save it to your favorites! Woohoo!
+                </Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        </Modal>
       </View>
-      
+
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
@@ -245,15 +259,17 @@ const Home = ({navigation}) => {
 
 const styles = StyleSheet.create({
   modalText: {
-    marginBottom: 15,
+    marginTop: 20,
     textAlign: 'center',
+    color: '#f1f1f1',
+    fontSize: 18,
   },
   modalView: {
     margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 20,
+    backgroundColor: '#353535',
+    borderRadius: 10,
     padding: 35,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -263,14 +279,20 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  closeIconContainer: {
+    position: 'absolute',
+    top: 5,
+    right: 10,
+  },
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    height: '100%',
   },
   mButton: {
-    borderRadius: 20,
+    borderRadius: 10,
     padding: 10,
     elevation: 2,
   },
