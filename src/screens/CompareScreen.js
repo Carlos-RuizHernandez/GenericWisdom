@@ -18,7 +18,14 @@ const CompareScreen = ({navigation}) => {
   const bookmarks = brands.bookmarks;
   const setBookmarks = useUpdateComparisonContext();
   console.log(bookmarks);
-
+  if (brands.brand1 == null || brands.brand2 == null) {
+    // Render an error message or any other content when brands is null
+    return (
+      <View style={styles.errorContainer}>
+        <Text style={styles.errorText}>Go pick some medicine first.</Text>
+      </View>
+    );
+  }
   const addToBookmarks = brand => {
     const isBookmarked = bookmarks.some(
       bookmark => bookmark.name === brand.name,
@@ -190,6 +197,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#767678',
     padding: 5,
     borderRadius: 5,
+  },
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  errorText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'red',
   },
 });
 

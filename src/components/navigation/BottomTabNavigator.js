@@ -4,6 +4,7 @@ import Home from '../../screens/Home/Home';
 import Search from '../../screens/Search/Search';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Bookmarks from '../../screens/Bookmarks/Bookmarks';
+import Compare from '../../screens/CompareScreen';
 import History from '../../screens/History/History';
 import Settings from '../../screens/Settings/Settings';
 
@@ -29,16 +30,6 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={Search}
-        options={{
-          title: 'Search',
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="magnify" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Bookmarks"
         component={Bookmarks}
         options={{
@@ -49,25 +40,16 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="History"
-        component={History}
+        name="Compare"
+        component={Compare}
         options={{
-          title: 'History',
+          title: 'Compare',
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="history" color={color} size={size} />
+            <MaterialCommunityIcons name="equal" color={color} size={size} />
           ),
         }}
       />
-      <Tab.Screen
-        name="Settings"
-        component={Settings}
-        options={{
-          title: 'Settings',
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="cog" color={color} size={size} />
-          ),
-        }}
-      />
+      
     </Tab.Navigator>
   );
 };
