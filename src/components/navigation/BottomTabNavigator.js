@@ -93,7 +93,7 @@ const BottomTabNavigator = () => {
         component={HomeStackScreen}
         options={{
           headerShown: false,
-          headerTitle: "Home",
+          title: "Home",
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),

@@ -178,7 +178,7 @@ const brandInfoData = [
     cons: ['Sleepiness', 'liver or kidney problems'],
     rating: 4.6,
     description:
-      'Cetirizine (Zyrtec) works well for allergies and usually causes less side',
+      'Cetirizine (Zyrtec) works well for allergies and usually causes less side effects',
     ingredients: ['Cetirizine'],
     manufacturer: 'Johnson & Johnson Consumer Inc',
   },

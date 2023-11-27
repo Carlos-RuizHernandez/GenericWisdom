@@ -24,27 +24,6 @@ function App(): JSX.Element {
                 name="BottomTabNavigator"
                 component={BottomTabNavigator}
               />
-              <Stack.Screen
-                name="Results:"
-                component={ResultsScreen}
-                options={{
-                  headerShown: true,
-                  headerStyle: {backgroundColor: '#353535'},
-                  headerTitleStyle: {color: '#f1f1f1'},
-                  title: `Results:`,
-                  headerTintColor: '#f1f1f1',
-                }}
-              />
-              <Stack.Screen
-                name="Reviews"
-                component={ReviewScreen}
-                options={{
-                  headerShown: true,
-                  headerStyle: {backgroundColor: '#353535'},
-                  headerTitleStyle: {color: '#f1f1f1'},
-                  headerTintColor: '#f1f1f1',
-                }}
-              />
             </Stack.Navigator>
           </NavigationContainer>
         </SafeAreaView>
