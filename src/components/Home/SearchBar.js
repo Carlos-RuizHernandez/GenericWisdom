@@ -60,13 +60,13 @@ const SearchBar = ({navigation}) => {
         <TouchableOpacity
           onPress={() => {
             setInput(title);
-            setFocus(!focused);
+            setFocus(false);
 
             handleBrandSelection(
               'brand1',
               brandInfoData.filter(item => item.name === title)[0],
             );
-            navigation.navigate('Results:');
+            navigation.navigate('Results');
           }}
           style={styles.item}>
           <View>
@@ -92,12 +92,11 @@ const SearchBar = ({navigation}) => {
         <TextInput
           style={styles.textInput}
           value={input}
-          placeholder="Search"
+          
           onChangeText={text => {
             setInput(text);
           }}
-          onFocus={() => setFocus(!focused)}
-          onEndEditing={() => setFocus(!focused)}
+          onFocus={() => setFocus(true)}
         />
       </View>
       <FlatList // Search recommendations list

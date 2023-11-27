@@ -23,7 +23,7 @@ const HomeCardList = props => {
                 onPress={() => {
                   handleBrandSelection('brand1', 
                   PainList.filter((x) => item.name === x.name)[0]);
-                  props.navigation.navigate("Results:");
+                  props.navigation.navigate("Results");
             }}>
               <HomeCard
                 text={item.name}

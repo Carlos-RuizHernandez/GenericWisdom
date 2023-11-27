@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, TouchableOpacity } from 'react-native';
+import { View, ScrollView, TouchableOpacity, Text, StyleSheet} from 'react-native';
 import MedCard from '../Bookmarks/MedCard';
 import bottleIcon from '../../images/bottle.png';
 import pillIcon from '../../images/pills.png';
@@ -23,7 +23,11 @@ const ResultsList = ({data, navigation}) => {
       item.name !== brands.brand1.name
     );
     return (
-      <ScrollView>
+
+      <ScrollView style={{marginHorizontal: 20}}>
+        <View style={{paddingBottom: 10}}>
+          <Text style={styles.text}>Brands similar to {brands.brand1.name}</Text>
+        </View>
         <View>
           {newPainList.map(item => (
             
@@ -41,9 +45,16 @@ const ResultsList = ({data, navigation}) => {
           ))}
         </View>
       </ScrollView >
+
     );
   };
 
+const styles = StyleSheet.create({
+  text: {
+  fontSize: 32,
+  fontWeight: 'bold',
+  color: '#f1f1f1',
+},})
 export default ResultsList;
 
 // for later
