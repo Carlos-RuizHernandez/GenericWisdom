@@ -201,6 +201,13 @@ const Home = ({navigation}) => {
         <StatusBar backgroundColor={'#353535'} />
         <View>
           <Text style={styles.header}>Popular Brands:</Text>
+          <View
+            style={{
+              borderBottomColor: 'gray',
+              borderBottomWidth: 1,
+              marginBottom: 10,
+            }}
+          />
           <HomeCardList data={popularMedicineList2} navigation={navigation} />
         </View>
       </ScrollView>
