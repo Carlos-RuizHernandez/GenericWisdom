@@ -13,7 +13,7 @@ import {
   useComparisonContext,
   useUpdateComparisonContext,
 } from '../ComparisonContext';
-import {brandInfoData} from '../../data';
+import {brandInfoData, PainList} from '../../data';
 
 const SearchedItem = React.createContext(null);
 
@@ -41,17 +41,17 @@ const SearchBar = ({navigation}) => {
       id: '3',
     },
     {
-      name: 'Nyquil',
-      id: '4',
+      name: 'Naproxen',
+      id: '4'
     },
     {
       name: 'Moltrin',
       id: '5',
     },
     {
-      name: 'Mucinex',
-      id: '6',
-    },
+      name: 'Zyrtec',
+      id: '6'
+    }
   ];
 
   const Item = ({title}) => {
@@ -64,7 +64,7 @@ const SearchBar = ({navigation}) => {
 
             handleBrandSelection(
               'brand1',
-              brandInfoData.filter(item => item.name === title)[0],
+              PainList.filter(item => item.name === title)[0],
             );
             navigation.navigate('Results');
           }}
