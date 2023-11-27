@@ -14,11 +14,52 @@ import bottleIcon from '../../images/bottle.png';
 import HomeCardList from '../../components/Home/HomeCardList';
 import {useUpdateComparisonContext} from '../../components/ComparisonContext';
 
-const popularMedicineList = [
-  {name: 'Advil', color: '#e8115b', image: pillIcon},
-  {name: 'Benadryl', color: '#1e3264', image: bottleIcon},
-  {name: 'Tylenol', color: '#006450', image: bottleIcon},
-  {name: 'Zyrtec', color: '#8c1932', image: pillIcon},
+
+const popularMedicineList2 = [
+  {
+    name: 'Advil',
+    price: '12.99',
+    generic: 'brand',
+    pros: ['Pain Relief', 'Fast Acting', 'Reliable', 'Popular'],
+    cons: ['Diarrhea', 'Possible death'],
+    rating: 4.5,
+    description:
+      'Advil is a widely used pain reliever known for its fast and effective results.',
+    ingredients: ['Ibuprofen', 'Starch', 'Cellulose'],
+    manufacturer: 'Pfizer',
+  },
+
+  {name: 'Benadryl',
+   price: '19.99',
+   generic: 'generic',
+   pros: ['relieve allergy and cold symptoms', 'lower-cost generic'],
+   cons: ['drowsiness','hyperactivity'],
+   rating: 4.2,
+   description: 'treat allergies, common cold symptoms, and itching.',
+   ingredients: ['Magnesium stearate','Polyethylene Glycol','Hypromellose'],
+   manufacturer: 'Kenvue'
+  },
+  {name: 'Tylenol',
+   price: '2.25',
+   generic: 'generic',
+   pros: ['relieve mild aches or pain and lower fever', ' lower-cost generic '],
+   cons: ['Doesn\'t help with inflammation and swelling','Liver damage'],
+   rating: 3.5,
+   description: 'lower fever and relieve mild pain in adults and children',
+   ingredients: ['Acetaminophen'],
+   manufacturer: 'McNeil Laboratories, Inc'
+  },
+  {name: 'Zyrtec', 
+   price: '3.16',
+   generic: 'generic',
+   pros: ['Lower risk of sleepiness', 'relieving allergy'],
+   cons: ['Sleepiness','liver or kidney problems'],
+   rating: 4.6,
+   description: 'Cetirizine (Zyrtec) works well for allergies and usually causes less side',
+   ingredients: ['Cetirizine'],
+   manufacturer: 'Johnson & Johnson Consumer Inc'
+
+  },
 ];
 
 const recommendedMedicineList = [
@@ -154,8 +195,8 @@ const Home = ({navigation}) => {
         contentContainerStyle={styles.contentContainer}>
         <StatusBar backgroundColor={'#353535'} />
         <View>
-          <Text style={styles.header}>Popular Brands</Text>
-          <HomeCardList data={popularMedicineList} navigation={navigation} />
+          <Text style={styles.header}>Popular Brands:</Text>
+          <HomeCardList data={popularMedicineList2} navigation={navigation} />
         </View>
       </ScrollView>
     </>
@@ -175,7 +216,7 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
   },
   header: {
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#f1f1f1',
     marginBottom: 20,
