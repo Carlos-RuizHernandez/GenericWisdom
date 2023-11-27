@@ -26,9 +26,7 @@ const HomeCardList = props => {
                   props.navigation.navigate("Results");
             }}>
               <HomeCard
-                text={item.name}
-                imageLink={item.image}
-                color={item.color}
+                data={item}
               />
             </TouchableOpacity>
           </View>
