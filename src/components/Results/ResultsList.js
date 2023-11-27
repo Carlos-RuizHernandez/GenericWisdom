@@ -32,6 +32,13 @@ const ResultsList = ({data, navigation}) => {
       <View style={{paddingBottom: 10}}>
         <Text style={styles.text}>Brands similar to {brands.brand1.name}</Text>
       </View>
+      <View
+        style={{
+          borderBottomColor: 'gray',
+          borderBottomWidth: 1,
+          marginBottom: 20,
+        }}
+      />
       <View>
         {newPainList.map(item => (
           <View key={item.name}>
@@ -53,7 +60,7 @@ const ResultsList = ({data, navigation}) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 32,
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#f1f1f1',
   },

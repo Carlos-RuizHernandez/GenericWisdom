@@ -11,7 +11,6 @@ const Bookmarks = ({navigation}) => {
       contentContainerStyle={styles.contentContainer}>
       <StatusBar backgroundColor={'#353535'} />
       <View>
-        <Text style={styles.text}>Tap the arrow to expand a card</Text>
         <MedCardList data={BookmarkedMedicineList} />
       </View>
     </ScrollView>
