@@ -7,12 +7,15 @@ import {
   ScrollView,
   Button,
   TouchableOpacity,
+  Modal,
+  Pressable
 } from 'react-native';
 import SearchBar from '../../components/Home/SearchBar';
 import pillIcon from '../../images/pills.png';
 import bottleIcon from '../../images/bottle.png';
 import HomeCardList from '../../components/Home/HomeCardList';
 import {useUpdateComparisonContext} from '../../components/ComparisonContext';
+import { useInfoContext, useUpdateInfoContext } from '../../components/InfoContext';
 
 const popularMedicineList2 = [
   {
@@ -184,7 +187,10 @@ const brandInfoData = [
   },
 ];
 
+
 const Home = ({navigation}) => {
+  const visibility = useInfoContext();
+  const updateVisibility = useUpdateInfoContext();
   const updateBrands = useUpdateComparisonContext();
 
   const handleBrandSelection = (brandName, brandInfo) => {
@@ -194,7 +200,29 @@ const Home = ({navigation}) => {
     <>
       <View style={styles.searchContainer}>
         <SearchBar navigation={navigation} />
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={visibility}
+          onRequestClose={() => {
+            updateVisibility();
+          }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>
+              Use the search bar or tap a popular brand to compare with!
+              Once you reach the results list, tap a brand you like and start comparing!
+            </Text>
+            <Pressable
+              style={[styles.mButton, styles.buttonClose]}
+              onPress={() => updateVisibility()}>
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
       </View>
+      
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
@@ -216,6 +244,47 @@ const Home = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  mButton: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
   searchContainer: {
     backgroundColor: '#353535',
   },

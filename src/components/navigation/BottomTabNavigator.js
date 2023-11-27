@@ -1,6 +1,6 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {useState} from 'react';
 import Home from '../../screens/Home/Home';
 import Search from '../../screens/Search/Search';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -11,13 +11,18 @@ import Settings from '../../screens/Settings/Settings';
 import ResultsScreen from '../../screens/ResultsScreen';
 import ReviewScreen from '../../screens/ReviewScreen';
 import CompareScreen from '../../screens/CompareScreen';
+import { Modal, TouchableOpacity } from 'react-native';
+import { useInfoContext, useUpdateInfoContext } from '../InfoContext';
 
 
 const Tab = createBottomTabNavigator();
 
 const HomeStack = createNativeStackNavigator();
 
+
 function HomeStackScreen() {
+  const visibility = useInfoContext();
+  const updateVisibility = useUpdateInfoContext();
   return (
     <HomeStack.Navigator
       screenOptions={{
@@ -34,14 +39,24 @@ function HomeStackScreen() {
         name="Home" 
         component={Home}
         options={{
-          headerTitle: `Home`
+          headerTitle: `Home`,
+          headerRight: () => (
+            <TouchableOpacity 
+              onPress={() => {
+                updateVisibility();
+              }}
+            >
+              <MaterialCommunityIcons name="information" color={"white"} size={30}/>
+
+            </TouchableOpacity>
+          )
         }}
         />
       <HomeStack.Screen 
         name="Results" 
         component={ResultsScreen}
         options={{
-          headerTitle: `Results:`
+          headerTitle: `Results`
         }}/>
     </HomeStack.Navigator>
   )
