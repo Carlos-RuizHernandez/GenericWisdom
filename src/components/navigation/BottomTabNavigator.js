@@ -9,6 +9,8 @@ import Compare from '../../screens/CompareScreen';
 import History from '../../screens/History/History';
 import Settings from '../../screens/Settings/Settings';
 import ResultsScreen from '../../screens/ResultsScreen';
+import ReviewScreen from '../../screens/ReviewScreen';
+import CompareScreen from '../../screens/CompareScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -25,11 +27,15 @@ function HomeStackScreen() {
         },
         headerTitleStyle: {
           color: 'white'
-        }
+        },
+        headerTintColor: 'white'
       }}>
       <HomeStack.Screen 
         name="Home" 
         component={Home}
+        options={{
+          headerTitle: `Home`
+        }}
         />
       <HomeStack.Screen 
         name="Results" 
@@ -40,6 +46,38 @@ function HomeStackScreen() {
     </HomeStack.Navigator>
   )
 }
+
+const CompareStack = createNativeStackNavigator();
+
+function CompareStackScreen() {
+  return (
+    <CompareStack.Navigator
+      screenOptions={{
+        headerShown: true,
+        headerStyle: {
+          backgroundColor: "#353535"
+        },
+        headerTitleStyle: {
+          color: 'white'
+        },
+        headerTintColor: 'white'
+      }}>
+      <CompareStack.Screen 
+        name="Compare" 
+        component={CompareScreen}
+        options={{
+        }}
+        />
+      <CompareStack.Screen 
+        name="Reviews" 
+        component={ReviewScreen}
+        options={{
+          headerTitle: `Reviews:`
+        }}/>
+    </CompareStack.Navigator>
+  )
+}
+
 
 const BottomTabNavigator = () => {
   return (
@@ -55,6 +93,7 @@ const BottomTabNavigator = () => {
         component={HomeStackScreen}
         options={{
           headerShown: false,
+          headerTitle: "Home",
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
@@ -71,9 +110,10 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Compare"
-        component={Compare}
+        name="CompareTab"
+        component={CompareStackScreen}
         options={{
+          headerShown: false,
           title: 'Compare',
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="equal" color={color} size={size} />

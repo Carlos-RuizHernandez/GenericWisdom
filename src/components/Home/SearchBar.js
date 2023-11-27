@@ -18,7 +18,7 @@ import {brandInfoData} from '../../data';
 const SearchedItem = React.createContext(null);
 
 const SearchBar = ({navigation}) => {
-  const [input, setInput] = useState('Search');
+  const [input, setInput] = useState('');
   const [focused, setFocus] = useState(false);
 
   const updateBrands = useUpdateComparisonContext();
@@ -92,7 +92,7 @@ const SearchBar = ({navigation}) => {
         <TextInput
           style={styles.textInput}
           value={input}
-          
+          placeholder="Search for a brand"
           onChangeText={text => {
             setInput(text);
           }}
