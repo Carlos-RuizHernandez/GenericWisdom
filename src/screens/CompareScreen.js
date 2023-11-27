@@ -67,7 +67,11 @@ const CompareScreen = ({navigation}) => {
             </TouchableOpacity>
             <TouchableOpacity onPress={() => addToBookmarks(brands.brand1)}>
               <MaterialCommunityIcons
-                name="cards-heart"
+                name= {
+                  bookmarks.some(bookmark => bookmark.name === brands.brand1.name)
+                    ? 'heart'
+                    : 'heart-outline'
+                }
                 color={
                   bookmarks.some(
                     bookmark => bookmark.name === brands.brand1.name,
@@ -122,7 +126,11 @@ const CompareScreen = ({navigation}) => {
             </TouchableOpacity>
             <TouchableOpacity onPress={() => addToBookmarks(brands.brand2)}>
               <MaterialCommunityIcons
-                name="cards-heart"
+                name= {
+                  bookmarks.some(bookmark => bookmark.name === brands.brand2.name)
+                    ? 'heart'
+                    : 'heart-outline'
+                }
                 color={
                   bookmarks.some(
                     bookmark => bookmark.name === brands.brand2.name,
