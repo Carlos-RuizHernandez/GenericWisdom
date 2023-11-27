@@ -7,7 +7,7 @@ import {
   ScrollView,
   FlatList,
 } from 'react-native';
-import ResultsList from '../components/Search/ResultsList';
+import ResultsList from '../components/Results/ResultsList';
 import {useComparisonContext} from '../components/ComparisonContext';
 // import {useComparisonContext} from '../components/ComparisonContext';
 

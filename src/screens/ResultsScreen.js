@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, StatusBar, StyleSheet, ScrollView} from 'react-native';
-import ResultsList from '../components/Search/ResultsList';
+import ResultsList from '../components/Results/ResultsList';
 
 const ResultsScreen = ({navigation}) => {
     // const resultList = useResultListContext();

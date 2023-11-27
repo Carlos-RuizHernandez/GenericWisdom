@@ -92,11 +92,12 @@ const SearchBar = ({navigation}) => {
         <TextInput
           style={styles.textInput}
           value={input}
-          defaultValue="Search"
+          placeholder="Search"
           onChangeText={text => {
             setInput(text);
           }}
           onFocus={() => setFocus(!focused)}
+          onEndEditing={() => setFocus(!focused)}
         />
       </View>
       <FlatList // Search recommendations list
@@ -115,6 +116,7 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     alignItems: 'center',
     backgroundColor: 'lightgrey',
+    
     borderWidth: 3,
     borderColor: 'white',
     borderRadius: 15,
@@ -125,6 +127,7 @@ const styles = StyleSheet.create({
   textInput: {
     flexGrow: 1,
     backgroundColor: 'lightgrey',
+    borderRadius: 15,
     color: '#424242',
   },
   item: {

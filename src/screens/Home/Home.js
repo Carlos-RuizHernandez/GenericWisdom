@@ -8,6 +8,7 @@ import {
   Button,
   TouchableOpacity,
 } from 'react-native';
+import SearchBar from '../../components/Home/SearchBar';
 import pillIcon from '../../images/pills.png';
 import bottleIcon from '../../images/bottle.png';
 import HomeCardList from '../../components/Home/HomeCardList';
@@ -144,23 +145,27 @@ const Home = ({navigation}) => {
     updateBrands(brandName, brandInfo);
   };
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.contentContainer}>
-      <StatusBar backgroundColor={'#353535'} />
-      <View>
-        <Text style={styles.header}>Popular Brands</Text>
-        <HomeCardList data={popularMedicineList} navigation={navigation} />
+    <>
+      <View style={styles.searchContainer}>
+        <SearchBar navigation={navigation}/>
       </View>
-      <View>
-        <Text style={styles.header}>Recommended</Text>
-        <HomeCardList data={recommendedMedicineList} navigation={navigation}/>
-      </View>
-    </ScrollView>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={styles.contentContainer}>
+        <StatusBar backgroundColor={'#353535'} />
+        <View>
+          <Text style={styles.header}>Popular Brands</Text>
+          <HomeCardList data={popularMedicineList} navigation={navigation} />
+        </View>
+      </ScrollView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+  searchContainer: {
+    backgroundColor: "#353535"
+  },
   container: {
     flex: 1,
     backgroundColor: '#353535',
