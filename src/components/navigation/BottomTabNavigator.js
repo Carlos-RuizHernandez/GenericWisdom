@@ -118,7 +118,7 @@ const BottomTabNavigator = () => {
         name="Bookmarks"
         component={Bookmarks}
         options={{
-          title: 'Bookmarks',
+          title: 'Favorites',
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="heart" color={color} size={size} />
           ),
