@@ -15,7 +15,7 @@ export const PainList = [
         rating: 3.5,
         description: 'lower fever and relieve mild pain in adults and children',
         ingredients: ['Acetaminophen'],
-        manufacturer: 'McNeil Laboratories, Inc',
+        manufacturer: 'Mcneil Laboratories, Inc',
     },
     {
         name: "Morphine",
